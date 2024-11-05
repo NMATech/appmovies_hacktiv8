@@ -1,19 +1,28 @@
-import logo from "../../assets/logo/Logo Navbar.png";
-import { FaRegHeart } from "react-icons/fa";
+import LogoNav from "./shared/LogoNav";
+import Menu from "./shared/Menu";
+import SearchNav from "./shared/SearchNav";
 
 const Navbar = () => {
   return (
-    <nav className="bg-main-bg_secondary flex">
-      <section>
-        <img src={logo} alt="" />
-      </section>
-      <section>
-        <h1>Menu</h1>
-      </section>
-      <section>
-        <input type="search" />
-      </section>
-    </nav>
+    <>
+      {/* Nav Desktop & Ipad */}
+      <nav className="bg-main-bg_secondary hidden md:flex justify-between pe-3">
+        <section className="flex gap-10">
+          <LogoNav />
+          <Menu />
+        </section>
+        <SearchNav />
+      </nav>
+
+      {/* Nav Mobile */}
+      <nav className="bg-main-bg_secondary flex flex-col md:hidden justify-between items-center gap-5 pb-5">
+        <section className="flex gap-10 py-1">
+          <LogoNav />
+          <Menu />
+        </section>
+        <SearchNav />
+      </nav>
+    </>
   );
 };
 
