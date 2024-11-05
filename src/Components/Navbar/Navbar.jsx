@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <>
       {/* Nav Desktop & Ipad */}
-      <nav className="bg-main-bg_secondary hidden md:flex justify-between pe-3">
+      <nav className="bg-main-bg_secondary hidden md:flex justify-between pe-4">
         <section className="flex gap-10">
           <LogoNav />
           <Menu />

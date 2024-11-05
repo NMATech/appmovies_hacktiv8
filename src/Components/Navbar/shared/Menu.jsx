@@ -8,7 +8,7 @@ const Menu = () => {
         className="w-max flex flex-col justify-center items-center text-white hover:text-rose-500"
       >
         <FaRegHeart className="text-[30px]" />
-        <h1 className="text-white text-[20px] font-thin">Menu</h1>
+        <h1 className="text-white text-[20px] font-thin">Favorites</h1>
       </a>
     </section>
   );
