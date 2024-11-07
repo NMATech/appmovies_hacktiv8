@@ -6,7 +6,7 @@ const SuggestionMovies = ({ genre1, genre2, datas, handle, choiceActive }) => {
   return (
     <>
       <div className="flex items-center">
-        <SuggestionHead />
+        <SuggestionHead title={"Suggestion"} />
         <div className="flex gap-3">
           <BtnCategory choiceActive={choiceActive} handle={handle[0]}>
             {genre1}
@@ -20,7 +20,12 @@ const SuggestionMovies = ({ genre1, genre2, datas, handle, choiceActive }) => {
       <div className="w-full flex flex-wrap justify-center items-center gap-3 mt-5">
         {datas.map((data, index) => {
           return (
-            <CardMovie key={index} image={data.Poster} title={data.Title}>
+            <CardMovie
+              key={index}
+              data={data}
+              image={data.Poster}
+              title={data.Title}
+            >
               {data.Title}
             </CardMovie>
           );

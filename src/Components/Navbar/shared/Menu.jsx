@@ -11,12 +11,12 @@ const Menu = () => {
     {
       logo: <IoHomeOutline className="text-[30px]" />,
       title: "Home",
-      link: "#",
+      link: "/",
     },
     {
       logo: <FaRegHeart className="text-[30px]" />,
       title: "Favorites",
-      link: "#",
+      link: "/favorites",
     },
   ];
 
