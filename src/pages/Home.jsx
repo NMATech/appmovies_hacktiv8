@@ -1,9 +1,9 @@
-import SuggestionMovies from "../Components/home/SuggestionMovies";
+import MoviesNDrama from "../Components/home/MoviesNDrama";
 
 const Home = () => {
   return (
     <>
-      <SuggestionMovies />
+      <MoviesNDrama />
     </>
   );
 };
