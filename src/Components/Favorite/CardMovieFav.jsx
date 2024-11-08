@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { notifAdd } from "../../../store/slices/notifCheckSlice";
-import { addFavorites } from "../../../store/slices/favSlices";
-import { showNotif, hideNotif } from "../../../store/slices/notifSlice";
+import { deleteFavorite } from "../../store/slices/favSlices";
+import { notifDelete } from "../../store/slices/notifCheckSlice";
+import { showNotif, hideNotif } from "../../store/slices/notifSlice";
 
-const CardMovie = ({ children, image, title, data }) => {
+const CardMovieFav = ({ children, image, title, dataID }) => {
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
 
@@ -17,9 +17,9 @@ const CardMovie = ({ children, image, title, data }) => {
     setIsHovered(false);
   };
 
-  const handleAddFav = (data) => {
-    dispatch(addFavorites(data));
-    dispatch(notifAdd());
+  const handleDeleteFav = (data) => {
+    dispatch(deleteFavorite(data));
+    dispatch(notifDelete());
     dispatch(showNotif());
 
     setInterval(() => {
@@ -44,17 +44,17 @@ const CardMovie = ({ children, image, title, data }) => {
         <div className="absolute w-full inset-0 flex flex-col justify-center items-center bg-black bg-opacity-50">
           <button
             onClick={() => {
-              handleAddFav(data);
+              handleDeleteFav(dataID);
             }}
             className="text-rose-500 hover:text-red-500"
           >
-            <FaRegHeart className="text-[30px] " />
+            <FaRegTrashAlt className="text-[30px] " />
           </button>
-          <h1>Add favorite</h1>
+          <h1>Delete favorite</h1>
         </div>
       )}
     </div>
   );
 };
 
-export default CardMovie;
+export default CardMovieFav;
