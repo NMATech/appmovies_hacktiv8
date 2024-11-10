@@ -6,10 +6,12 @@ import {
   setShowCard,
   setError,
 } from "../../../store/slices/movieSlice";
+import { useNavigate } from "react-router-dom";
 
 const SearchNav = () => {
   const [input, setInput] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleOnInput = (e) => {
     setInput(e.target.value);
@@ -52,6 +54,11 @@ const SearchNav = () => {
     }
   };
 
+  const handleRedirectWithQuery = () => {
+    navigate(`/search/${input}`);
+    setInput("");
+  };
+
   useEffect(() => {
     handleWhenInputNull();
     handleSearch();
@@ -63,10 +70,15 @@ const SearchNav = () => {
         type="text"
         value={input}
         onChange={(event) => handleOnInput(event)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleRedirectWithQuery();
+          }
+        }}
         className="bg-transparent focus:outline-none focus:ring-0 focus:border-transparent text-white"
         placeholder="Search..."
       />
-      <button className="">
+      <button onClick={() => handleRedirectWithQuery()} className="">
         <IoIosSearch className="text-white text-[25px]" />
       </button>
     </section>
